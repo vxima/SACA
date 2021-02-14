@@ -8,4 +8,4 @@ Membros da Equipe:
 - Pedro Nogueira
 - José Carlos
 - Eneri D'angelis
-- Lucas motta
+- Lucas Mota
