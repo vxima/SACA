@@ -22,3 +22,8 @@ Cenario: Obter porcentagem das metas pré-requisitos completas  para a próxima 
     When: Solitico porcentagem atingida para a meta "Falar palavras"
     Then: O sistema retorna "50%"
     
+Cenario: Obter grafo das metas com linhas indicando quais metas sao requisitas
+    Given: estou na pagina da criança "Jonathan"
+    And: vejo o profissional responsavel "Roberto"
+    When: Solicito grafo das metas 
+    Then: Sistema apresenta representaçao grafica do grafo com as metas e seus requisitos
