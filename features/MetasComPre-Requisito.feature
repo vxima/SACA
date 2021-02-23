@@ -21,4 +21,5 @@ Cenario: Obter porcentagem das metas pré-requisitos completas  para a próxima 
     And: vejo o profissional responsavel "Roberto"
     When: Solitico porcentagem atingida para a meta "Falar palavras"
     Then: O sistema retorna "50%"
+    And: estou na pagina da criança "Jonathan"
     
