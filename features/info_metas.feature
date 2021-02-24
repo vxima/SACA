@@ -32,4 +32,6 @@ Scenario: Obter o número e a lista das metas não atingidas
 	And o número "1" indicando o tamanho da lista de metas não atingidas
 
 
-#Adicionando comentario para ver mudanças com o git diff
+Scenario: Falha ao  obter as metas com menores desempenho
+
+Scenario: Falha ao calcular a procentagem das metas atingidas
