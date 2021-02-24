@@ -36,6 +36,10 @@ Scenario: Falha ao obter as metas com menores desempenho
 	Given estou na página de metas
 	And os desempenhos das metas não estão cadastrados
 	When Clico em "Metas com menor desempenho"
-	Then aparece uma mensagem de erro indicando "Não existem metas registradas"
+	Then aparece uma mensagem de erro indicando "Não existem metas registradas".
 
-Scenario: Falha ao calcular a procentagem das metas atingidas
+Scenario: Falha ao obter as metas com maiores desempenho
+	Given estou na página de metas
+	And os desempenhos das metas não estão cadastrados
+	When Clico em "Metas com menor desempenho"
+	Then aparece uma mensagem de erro indicando "Não existem metas registradas".
