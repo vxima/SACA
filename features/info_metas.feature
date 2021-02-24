@@ -29,4 +29,7 @@ Scenario: Obter o número e a lista das metas não atingidas
 	And os desempenhos das metas estão cadastrados com  "9" em "Desenhar quadrado", "10" em "Desenhar círculos" porém a meta "desenhar  triângulos" não foi atingida ainda
 	When Clico em "número e a lista das metas não atingidas"
 	Then aparece uma lista com as metas não atingidas "desenhar triângulos"
-	And o número "1" indicando o tamanho da lista
+	And o número "1" indicando o tamanho da lista de metas não atingidas
+
+
+#Adicionando comentario para ver mudanças com o git diff
