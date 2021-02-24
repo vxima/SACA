@@ -23,4 +23,11 @@ Cenario: Visualizar a avaliação média de um profissional
     When: Solicito a avaliação média
     Then: O sistema calcula a soma de todas as avalições que o profissional recebeu
     And: divide a soma pela quantidade de avaliações
-    And: retorna o resultado do profissional "Roberto"
+    And: cede o resultado do profissional "Roberto"
+
+Cenario: Avaliar um profissional com uma valor fora da escala "0 a 10"
+    Giver: estou na página do profissional "Roberto"
+    And: desejo avaliar o profissional com uma nota
+    When: digito o valor "-1"
+    Then: o sistema informa a mensagem "proibido avaliar com nota fora da escala"
+    And: a avaliação não é armazenada
