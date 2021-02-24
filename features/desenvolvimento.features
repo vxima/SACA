@@ -18,14 +18,11 @@ Then aparece página “metas a cumprir” com a “meta 1” com grau de dificu
 And estão em uma lista ordenadas pelo grau de dificuldade
 
 Cenário: Mural de avisos
-Given estou na página inicial do sistema
-And posso ver o “menu dropdown”
-When abro o menu
-Then vejo a opção “mural de avisos”
-When clico em “mural de avisos”
-Then aparece página “mural de avisos” com um aviso “não haverá expediente no dia 15” 
+Given estou na página "mural de avisos" do sistema
+And vejo um aviso “não haverá expediente no dia 15”
 And uma “seção de troféu” com a criança “João Pedro”, que alcançou 100% nas metas
-And tem um botão "voltar para o início"
+When clico em "seção de troféu"
+Then posso ver um histórico de crianças que ganharam o troféu
 
 Os cenários abaixo pertencce a Pedro Nogueira:
 
