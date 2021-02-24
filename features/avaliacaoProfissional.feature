@@ -23,4 +23,4 @@ Cenario: Visualizar a avaliação média de um profissional
     When: Solicito a avaliação média
     Then: O sistema calcula a soma de todas as avalições que o profissional recebeu
     And: divide a soma pela quantidade de avaliações
-    And: retorna o resultado na página do profissional "Roberto"
+    And: retorna o resultado do profissional "Roberto"
