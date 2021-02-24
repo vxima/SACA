@@ -26,8 +26,14 @@ Cenario: Visualizar a avaliação média de um profissional
     And: cede o resultado do profissional "Roberto"
 
 Cenario: Avaliar um profissional com uma valor fora da escala "0 a 10"
-    Giver: estou na página do profissional "Roberto"
+    Given: estou na página do profissional "Roberto"
     And: desejo avaliar o profissional com uma nota
     When: digito o valor "-1"
     Then: o sistema informa a mensagem "proibido avaliar com nota fora da escala"
     And: a avaliação não é armazenada
+
+Cenario: Avaliar um profissional que não realizou atividades com a criança
+    Given: estou na página do profissional "Marcos"
+    And: desejo avaliar o profissional com uma nota
+    When: tento avaliar um valor para o profissional
+    Then: O sistema envia uma mensagem "Você não pode avaliar um profissional que não aplicou atividades com a crianca"
