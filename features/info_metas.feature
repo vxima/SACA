@@ -43,3 +43,4 @@ Scenario: Falha ao obter as metas com maiores desempenho
 	And os desempenhos das metas não estão cadastrados
 	When Clico em "Metas com maior desempenho"
 	Then aparece uma mensagem de erro indicando "Não existem metas registradas".
+	And o botão "voltar a página de metas" aparece
