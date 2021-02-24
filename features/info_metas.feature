@@ -41,5 +41,5 @@ Scenario: Falha ao obter as metas com menores desempenho
 Scenario: Falha ao obter as metas com maiores desempenho
 	Given estou na página de metas
 	And os desempenhos das metas não estão cadastrados
-	When Clico em "Metas com menor desempenho"
+	When Clico em "Metas com maior desempenho"
 	Then aparece uma mensagem de erro indicando "Não existem metas registradas".
