@@ -32,6 +32,10 @@ Scenario: Obter o número e a lista das metas não atingidas
 	And o número "1" indicando o tamanho da lista de metas não atingidas
 
 
-Scenario: Falha ao  obter as metas com menores desempenho
+Scenario: Falha ao obter as metas com menores desempenho
+	Given estou na página de metas
+	And os desempenhos das metas não estão cadastrados
+	When Clico em "Metas com menor desempenho"
+	Then aparece uma mensagem de erro indicando "Não existem metas registradas"
 
 Scenario: Falha ao calcular a procentagem das metas atingidas
