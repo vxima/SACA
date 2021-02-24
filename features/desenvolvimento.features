@@ -25,3 +25,4 @@ Then vejo a opção “mural de avisos”
 When clico em “mural de avisos”
 Then aparece página “mural de avisos” com um aviso “não haverá expediente no dia 15” 
 And uma “seção de troféu” com a criança “João Pedro”, que alcançou 100% nas metas
+And tem um botão "voltar para o início"
