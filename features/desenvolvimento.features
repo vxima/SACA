@@ -10,7 +10,7 @@ Given estou na página “desempenho”
 When clico em “média”
 Then posso ver a página de média de desempenho da  criança dizendo que a média dela é de “8 acertos”
 
-Cenário: Ordenar as metas por ordem de dificuldade
+Cenário: Ordenar as metas por ordem de dificuldade 
 Given estou na página “desempenho”
 And vejo a opção “metas a cumprir”
 When clica em “metas a cumprir”
