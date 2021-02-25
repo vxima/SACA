@@ -53,7 +53,7 @@ Scenario: Falha ao obter o número e a lista das metas não atingidas
 
 Scenario: Falha ao obter o número e a lista das metas atingidas
 	Given estou na página de metas
-	And os desempenhos das metas estão cadastrados com "-3%#@" em "Desenhar círculos",  "4" em "Desenhar quadrado"
+	And os desempenhos das metas estão cadastrados com git"-3%#@" em "Desenhar círculos",  "4" em "Desenhar quadrado"
 	When Clico em "número e a lista das metas atingidas"
 	Then aparece uma mensagem de erro indicando "Meta com Desempenho inválido".
 	And aparece a opção "Voltar a página de metas"
