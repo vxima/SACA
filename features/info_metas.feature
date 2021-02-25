@@ -58,3 +58,4 @@ Scenario: Falha ao obter o número e a lista das metas atingidas
 	Then aparece uma mensagem de erro indicando "Meta com Desempenho inválido".
 	And aparece a opção "Voltar a página de metas"
 #commit2
+#commit3
