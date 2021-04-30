@@ -5,7 +5,7 @@ Projeto de Engenharia de Software e Sistemas 2020.1 CIn UFPE
 
 Membros da Equipe:
 - Victor Ximenes 
-- Pedro Nogueira
+- Pedro Nogueira Coutinho
 - José Carlos
 - Eneri D'angelis
 - Lucas Mota
