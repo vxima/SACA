@@ -1,7 +1,8 @@
 # AngularHttp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
-##Dependencies
+
+## Dependencies
 run `sudo npm install -g @angular/cli` for angular
 run `sudo npm install -g json-server` for json server
 ## Development server
