@@ -19,42 +19,40 @@ export class AppComponent implements OnInit {
     this.getChildren();
   }
 
-  // defini se um carro será criado ou atualizado
+  // defines if a child will be updated or saved
   saveChild(form: NgForm) {
     
     if (this.children.find(child=>child.id === this.child.id) !== undefined) {
-        console.log('CHILDREN UPDATED')
         this.carService.updateChild(this.child).subscribe(() => {
         this.cleanForm(form);
       });
     } else {
-      console.log('CHILDREN SAVED')
       this.carService.saveChild(this.child).subscribe(() => {
         this.cleanForm(form);
       });
     }
   }
 
-  // Chama o serviço para obtém todos os carros
+  // calls the service to obtain all chindren
   getChildren() {
     this.carService.getChildren().subscribe((children: Child[]) => {
       this.children = children;
     });
   }
 
-  // deleta um carro
+  // delete a child
   deleteChild(child: Child) {
     this.carService.deleteChild(child).subscribe(() => {
       this.getChildren();
     });
   }
 
-  // copia o carro para ser editado.
+  // Makes the current child a copy of the one to be edited
   editChild(child: Child) {
     this.child = { ...child };
   }
 
-  // limpa o formulario
+  // cleans de form
   cleanForm(form: NgForm) {
     this.getChildren();
     form.resetForm();
