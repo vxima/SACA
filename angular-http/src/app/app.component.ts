@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
 
   // defini se um carro será criado ou atualizado
   saveChild(form: NgForm) {
-    if (this.child.id !== undefined) {
+    
+    if (this.children.find(child=>child.id === this.child.id) !== undefined) {
         console.log('CHILDREN UPDATED')
         this.carService.updateChild(this.child).subscribe(() => {
         this.cleanForm(form);
