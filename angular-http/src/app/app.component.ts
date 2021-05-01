@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+  title = 'angular-http';
   child = {} as Child;
   children: Child[] = [];
 
