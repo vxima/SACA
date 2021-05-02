@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   child = {} as Child;
   children: Child[] = [];
 
-  constructor(private carService: ChildService) {}
+  constructor(private childService: ChildService) {}
   
   ngOnInit() {
     this.getChildren();
@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
   saveChild(form: NgForm) {
     
     if (this.children.find(child=>child.id === this.child.id) !== undefined) {
-        this.carService.updateChild(this.child).subscribe(() => {
+        this.childService.updateChild(this.child).subscribe(() => {
         this.cleanForm(form);
       });
     } else {
-      this.carService.saveChild(this.child).subscribe(() => {
+      this.childService.saveChild(this.child).subscribe(() => {
         this.cleanForm(form);
       });
     }
@@ -35,14 +35,14 @@ export class AppComponent implements OnInit {
 
   // calls the service to obtain all chindren
   getChildren() {
-    this.carService.getChildren().subscribe((children: Child[]) => {
+    this.childService.getChildren().subscribe((children: Child[]) => {
       this.children = children;
     });
   }
 
   // delete a child
   deleteChild(child: Child) {
-    this.carService.deleteChild(child).subscribe(() => {
+    this.childService.deleteChild(child).subscribe(() => {
       this.getChildren();
     });
   }
