@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RegisterChildComponent } from './components/register-child/register-child.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { GoalsPrerequisiteComponent } from './components/goals-prerequisite/goals-prerequisite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     RegisterChildComponent,
-    HomePageComponent
+    HomePageComponent,
+    GoalsPrerequisiteComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,9 @@ import { HomePageComponent } from './components/home-page/home-page.component';
       },
       {
         path: 'register-child', component:RegisterChildComponent
+      },
+      {
+        path: 'goals-prerequisite', component:GoalsPrerequisiteComponent
       }
     ])
   ],
