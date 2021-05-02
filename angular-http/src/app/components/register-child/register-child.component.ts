@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ChildService } from './services/child.service';
-import { Child } from './models/child';
+import { ChildService } from './../../services/child.service';
+import { Child } from './../../models/child';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-register-child',
+  templateUrl: './register-child.component.html',
+  styleUrls: ['./register-child.component.css']
 })
-export class AppComponent implements OnInit {
+export class RegisterChildComponent implements OnInit {
   title = 'angular-http';
   child = {} as Child;
   children: Child[] = [];
@@ -20,15 +20,15 @@ export class AppComponent implements OnInit {
   }
 
   // defines if a child will be updated or saved
-  saveChild(form: NgForm) {
+  saveChild(/*form: NgForm*/) {
     
     if (this.children.find(child=>child.id === this.child.id) !== undefined) {
         this.childService.updateChild(this.child).subscribe(() => {
-        this.cleanForm(form);
+        this.cleanForm(/*form*/);
       });
     } else {
       this.childService.saveChild(this.child).subscribe(() => {
-        this.cleanForm(form);
+        this.cleanForm(/*form*/);
       });
     }
   }
@@ -53,9 +53,9 @@ export class AppComponent implements OnInit {
   }
 
   // cleans de form
-  cleanForm(form: NgForm) {
+  cleanForm(/*form: NgForm*/) {
     this.getChildren();
-    form.resetForm();
+    //form.resetForm();
     this.child = {} as Child;
   }
 
