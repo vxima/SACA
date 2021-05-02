@@ -7,6 +7,7 @@
             <th scope="col">Id</th>
             <th scope="col">Nome</th>
             <th scope="col">Idade</th>
+            <th scope="col">Pais</th>
             <th scope="col">Grau de severidade</th>
             <th scope="col">Profissional responsável</th>
         </tr>
@@ -16,6 +17,7 @@
             <td>{{ child.id }}</td>
             <td>{{ child.name }}</td>
             <td>{{ child.age }}</td>
+            <td>{{ child.parents }}</td>
             <td>{{ child.severity }}</td>
             <td>{{ child.responsible_pro }}</td>
             <td>
@@ -45,6 +47,12 @@
                     <input [(ngModel)]="child.age">
                 </td>
             </tr>    
+            <tr>
+                <th scope="col">Pais</th>
+                <td>
+                    <input [(ngModel)]="child.parents">
+                </td>
+            </tr> 
             <tr>
                 <th scope="col">Grau de severidade</th>
                 <td>
