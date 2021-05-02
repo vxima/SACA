@@ -1,13 +1,6 @@
 {
   "children": [
     {
-      "id": 705,
-      "name": "Pedro",
-      "age": "9",
-      "severity": 1,
-      "responsible_pro": "Josefina"
-    },
-    {
       "id": 249,
       "name": "Victor",
       "age": 9,
@@ -20,6 +13,13 @@
       "age": 11,
       "severity": 3,
       "responsible_pro": "Jordalia"
+    },
+    {
+      "id": "243",
+      "name": "Pedro",
+      "age": 9,
+      "severity": 2,
+      "responsible_pro": "Jadiscreusa"
     }
   ]
 }
