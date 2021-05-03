@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoalsPrerequisiteComponent } from './goals-prerequisite.component';
+import { InformationsComponent } from './informations.component';
 
-describe('GoalsPrerequisiteComponent', () => {
-  let component: GoalsPrerequisiteComponent;
-  let fixture: ComponentFixture<GoalsPrerequisiteComponent>;
+describe('InformationsComponent', () => {
+  let component: InformationsComponent;
+  let fixture: ComponentFixture<InformationsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GoalsPrerequisiteComponent ]
+      declarations: [ InformationsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoalsPrerequisiteComponent);
+    fixture = TestBed.createComponent(InformationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

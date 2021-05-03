@@ -1,0 +1,24 @@
+<h1>{{child.name}}</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Grau de severidade</th>
+            <th scope="col">Profissional responsável</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ child.id }}</td>
+            <td>{{ child.name }}</td>
+            <td>{{ child.age }}</td>
+            <td>{{ child.parents }}</td>
+            <td>{{ child.severity }}</td>
+            <td>{{ child.responsible_pro }}</td>
+        </tr>
+        
+    </tbody>
+</table>

@@ -6,7 +6,6 @@
       "age": 9,
       "severity": 2,
       "responsible_pro": "Jadiscreusa"
-      
     },
     {
       "id": 884,
@@ -23,9 +22,37 @@
       "responsible_pro": "Jadiscreusa"
     }
   ],
-  "goals": [
+  "task": [
     {
-      
+      "dependencies": [
+        "22"
+      ],
+      "id": "23",
+      "title": "Desenhar circulo",
+      "description": "Desenhar circulo"
+    }
+  ],
+  "task-goals": [
+    {
+      "id": "1,2",
+      "child_id": 1,
+      "task_id": 1,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,4",
+      "child_id": 1,
+      "task_id": 1,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,1112",
+      "child_id": 1,
+      "task_id": 1,
+      "goal": "MA",
+      "achieved": true
     }
   ]
 }

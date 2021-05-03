@@ -9,7 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RegisterChildComponent } from './components/register-child/register-child.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { GoalsPrerequisiteComponent } from './components/goals-prerequisite/goals-prerequisite.component';
+import { DependentTasksComponent } from './components/dependent-tasks/dependent-tasks.component';
+import { RegisterTaskComponent } from './components/register-task/register-task.component';
+import { ChildrenDetailingComponent } from './components/children-detailing/children-detailing.component';
+import { InformationsComponent } from './components/informations/informations.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { GoalsPrerequisiteComponent } from './components/goals-prerequisite/goal
     NavBarComponent,
     RegisterChildComponent,
     HomePageComponent,
-    GoalsPrerequisiteComponent
+    DependentTasksComponent,
+    RegisterTaskComponent,
+    ChildrenDetailingComponent,
+    InformationsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,13 @@ import { GoalsPrerequisiteComponent } from './components/goals-prerequisite/goal
         path: 'register-child', component:RegisterChildComponent
       },
       {
-        path: 'goals-prerequisite', component:GoalsPrerequisiteComponent
+        path: 'register-task', component:RegisterTaskComponent
+      },
+      {
+        path: 'children-detailing', component:ChildrenDetailingComponent
+      },
+      {
+        path: 'informations/:param', component:InformationsComponent
       }
     ])
   ],
