@@ -23,7 +23,14 @@
     }
   ],
   "task": [
-    {}
+    {
+      "dependencies": [
+        "22"
+      ],
+      "id": "23",
+      "title": "Desenhar circulo",
+      "description": "Desenhar circulo"
+    }
   ],
   "task-goals": [
     {

@@ -3,4 +3,5 @@ export interface Task {
     title: string;
     description: string;
     dependencies: number[];
+    dependencies_number: number;
 }

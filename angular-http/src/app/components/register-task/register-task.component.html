@@ -1,0 +1,67 @@
+<h1>Registro de atividades</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Título</th>
+            <th scope="col">Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>
+                <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteTask(task)">Deletar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped">
+    <tr>
+        <th scope="col">Id</th>
+        <th>
+            <input [(ngModel)]="task.id">
+        </th>
+    </tr>    
+    <tr>
+        <th scope="col">Título</th>
+        <td>
+            <input [(ngModel)]="task.title">
+        </td>
+    </tr>    
+    <tr>
+        <th scope="col">Descrição</th>
+        <td>
+            <textarea [(ngModel)]="task.description"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <th scope="col">Dependencias</th>
+        <td>
+            <input [(ngModel)]="aux">
+        </td>
+        <td>
+            <button (click)="addDependence()">Adicionar dependencia</button>
+        </td>
+    </tr>
+    <tr>
+        <th scope="col">Lista de Id de dependencia</th>
+    </tr>
+    <tr *ngFor="let d of task.dependencies">
+        <th>{{ d }}</th>
+    </tr>    
+    
+<tbody>
+    <tr>
+        <td>
+
+            <button type="button" class="btn btn-primary btn-sm" (click)=saveTask()>Salvar</button>
+            <button type="button" class="btn btn-secondary btn-sm ml-1"> Cancelar</button>
+        </td>
+    </tr>
+</tbody>
+
+</table>

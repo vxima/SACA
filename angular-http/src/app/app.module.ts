@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RegisterChildComponent } from './components/register-child/register-child.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { GoalsPrerequisiteComponent } from './components/goals-prerequisite/goals-prerequisite.component';
+import { DependentTasksComponent } from './components/dependent-tasks/dependent-tasks.component';
+import { RegisterTaskComponent } from './components/register-task/register-task.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GoalsPrerequisiteComponent } from './components/goals-prerequisite/goal
     NavBarComponent,
     RegisterChildComponent,
     HomePageComponent,
-    GoalsPrerequisiteComponent
+    DependentTasksComponent,
+    RegisterTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { GoalsPrerequisiteComponent } from './components/goals-prerequisite/goal
         path: 'register-child', component:RegisterChildComponent
       },
       {
-        path: 'goals-prerequisite', component:GoalsPrerequisiteComponent
+        path: 'register-task', component:RegisterTaskComponent
       }
     ])
   ],
