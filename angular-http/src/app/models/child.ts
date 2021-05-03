@@ -1,3 +1,5 @@
+import { TaskGoals } from  './task-goals';
+
 export interface Child {
     id: number;
     name: string;
@@ -5,4 +7,5 @@ export interface Child {
     parents: string;
     severity: string;
     responsible_pro: string;
+    task_goals: TaskGoals[];
 }
