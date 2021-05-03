@@ -11,6 +11,8 @@ import { RegisterChildComponent } from './components/register-child/register-chi
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { DependentTasksComponent } from './components/dependent-tasks/dependent-tasks.component';
 import { RegisterTaskComponent } from './components/register-task/register-task.component';
+import { ChildrenDetailingComponent } from './components/children-detailing/children-detailing.component';
+import { InformationsComponent } from './components/informations/informations.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { RegisterTaskComponent } from './components/register-task/register-task.
     RegisterChildComponent,
     HomePageComponent,
     DependentTasksComponent,
-    RegisterTaskComponent
+    RegisterTaskComponent,
+    ChildrenDetailingComponent,
+    InformationsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,12 @@ import { RegisterTaskComponent } from './components/register-task/register-task.
       },
       {
         path: 'register-task', component:RegisterTaskComponent
+      },
+      {
+        path: 'children-detailing', component:ChildrenDetailingComponent
+      },
+      {
+        path: 'informations/:param', component:InformationsComponent
       }
     ])
   ],
