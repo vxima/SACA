@@ -39,27 +39,36 @@ export class PrerequisiteComponent implements OnInit {
 
   set prerequisiteFinder(task_title: string) {
     this.task_title = this.format(task_title)
-    this.getTaskId()
-    this.getTaskGoals()
-    if(this.task_id == -1){
-      this.task_title = task_title
-      return 
-    }
-    
-    this.taskService.getTaskById(this.task_id).subscribe((task:Task) =>{
-      this.dependencies = task.dependencies
-    })
-    this.tasks = []
-    this.dependencies.forEach((dependence) =>{
-      this.taskService.getTaskById(dependence).subscribe((task:Task)=>{
-        this.tasks.push(task)
-
+      this.getTaskGoals()
+      this.getTaskId()
+      this.taskGoals = this.taskGoals.filter((taskGoal)=>{
+        return this.child_id===taskGoal.child_id
       })
-    })
-    this.task_title = task_title
+      
+      this.tasks = []
+      this.dependencies = []
+      this.taskGoals.forEach((taskGoal)=>{
+        this.taskService.getTaskById(taskGoal.task_id).subscribe((task:Task)=>{
+          if(task.id === this.task_id){
+            
+            this.dependencies = task.dependencies
+            if(this.dependencies.length !== 0){
+              this.dependencies.forEach((id)=>{
+                this.tasks = []
+                this.taskService.getTaskById(id).subscribe((task:Task)=>{
+                  this.tasks.push(task)
+                })
+              })
+              
+            }
+          }
+        })
+      })
+      this.task_title = task_title
+     
 
   }
-
+  
   get prerequisiteFinder() :string{
     return this.task_title
   }
@@ -81,9 +90,9 @@ export class PrerequisiteComponent implements OnInit {
         }
 
       })
-      if(!key) this.task_id = -1     
+         
     })   
-
+    if(!key) this.task_id = -1  
   }
 
   format(text:string):string {
