@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Child } from '../models/child';
+import { Task } from '../models/task';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChildService {
-
-  url = 'http://localhost:3000/children'; // api rest fake
+export class TaskService {
+  url = 'http://localhost:3000/task'; // api rest fake
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -19,44 +18,44 @@ export class ChildService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  // Get all children
-  getChildren(): Observable<Child[]> {
-    return this.httpClient.get<Child[]>(this.url)
+  // Get all tasks
+  getTasks(): Observable<Task[]> {
+    return this.httpClient.get<[]>(this.url)
       .pipe(
         retry(2),
         catchError(this.handleError))
   }
 
-  // get a child by it's id
-  getChildById(id: number): Observable<Child> {
-    return this.httpClient.get<Child>(this.url + '/' + id)
+  // get a task by it's id
+  getTaskById(id: number): Observable<Task> {
+    return this.httpClient.get<Task>(this.url + '/' + id)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
 
-  // save a child
-  saveChild(child: Child): Observable<Child> {
-    return this.httpClient.post<Child>(this.url, JSON.stringify(child), this.httpOptions)
+  // save a task
+  saveTask(task: Task): Observable<Task> {
+    return this.httpClient.post<Task>(this.url, JSON.stringify(task), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
 
-  // updates a child
-  updateChild(child: Child): Observable<Child> {
-    return this.httpClient.put<Child>(this.url + '/' + child.id, JSON.stringify(child), this.httpOptions)
+  // updates a task
+  updateTask(task: Task): Observable<Task> {
+    return this.httpClient.put<Task>(this.url + '/' + task.id, JSON.stringify(task), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
 
-  // delte a child
-  deleteChild(child: Child) {
-    return this.httpClient.delete<Child>(this.url + '/' + child.id, this.httpOptions)
+  // delte a task
+  deleteTask(task: Task) {
+    return this.httpClient.delete<Task>(this.url + '/' + task.id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

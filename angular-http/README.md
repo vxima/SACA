@@ -9,7 +9,7 @@ run `sudo npm install -g json-server` for json server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Jason server
+## Json server
 Run `json-server --watch src/assets/data/db.json`
 
 ## Code scaffolding

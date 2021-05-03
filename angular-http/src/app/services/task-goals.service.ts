@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Child } from '../models/child';
+import { TaskGoals } from '../models/task-goals';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChildService {
-
-  url = 'http://localhost:3000/children'; // api rest fake
+export class TaskGoalsService {
+  url = 'http://localhost:3000/task-goals'; // api rest fake
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -19,44 +18,44 @@ export class ChildService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  // Get all children
-  getChildren(): Observable<Child[]> {
-    return this.httpClient.get<Child[]>(this.url)
+  // Get all tasks goals
+  getTaskGoals(): Observable<TaskGoals[]> {
+    return this.httpClient.get<[]>(this.url)
       .pipe(
         retry(2),
         catchError(this.handleError))
   }
 
-  // get a child by it's id
-  getChildById(id: number): Observable<Child> {
-    return this.httpClient.get<Child>(this.url + '/' + id)
+  // get a task goal by it's id
+  getTaskGoal(child_id: number, task_id: number): Observable<TaskGoals> {
+    return this.httpClient.get<TaskGoals>(this.url + '/' + child_id + ',' + task_id)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
 
-  // save a child
-  saveChild(child: Child): Observable<Child> {
-    return this.httpClient.post<Child>(this.url, JSON.stringify(child), this.httpOptions)
+  // save a task goal
+  saveTaskGoal(taskGoal: TaskGoals): Observable<TaskGoals> {
+    return this.httpClient.post<TaskGoals>(this.url, JSON.stringify(taskGoal), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
 
-  // updates a child
-  updateChild(child: Child): Observable<Child> {
-    return this.httpClient.put<Child>(this.url + '/' + child.id, JSON.stringify(child), this.httpOptions)
+  // updates a task goal
+  updateTaskGoals(taskGoals: TaskGoals): Observable<TaskGoals> {
+    return this.httpClient.put<TaskGoals>(this.url + '/' + taskGoals.id, JSON.stringify(taskGoals), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
 
-  // delte a child
-  deleteChild(child: Child) {
-    return this.httpClient.delete<Child>(this.url + '/' + child.id, this.httpOptions)
+  // delte a task goal
+  deleteTaskGoals(taskGoals: TaskGoals) {
+    return this.httpClient.delete<TaskGoals>(this.url + '/' + taskGoals.id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
@@ -76,5 +75,4 @@ export class ChildService {
     console.log(errorMessage);
     return throwError(errorMessage);
   };
-
 }
