@@ -4,7 +4,8 @@ export interface Child {
     id: number;
     name: string;
     age: number;
-    severity: number;
+    parents: string;
+    severity: string;
     responsible_pro: string;
     task_goals: TaskGoals[];
 }
