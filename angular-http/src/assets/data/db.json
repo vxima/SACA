@@ -1,56 +1,82 @@
 {
   "children": [
     {
-      "id": 249,
-      "name": "Victor",
-      "age": 9,
-      "severity": 2,
-      "responsible_pro": "Jadiscreusa"
+      "id": "1",
+      "name": "ana",
+      "age": "10",
+      "parents": "Marcelo e Monica",
+      "severity": "2",
+      "responsible_pro": "Jucelina"
     },
     {
-      "id": 884,
-      "name": "Cleiton",
-      "age": 11,
-      "severity": 3,
-      "responsible_pro": "Jordalia"
-    },
-    {
-      "id": "243",
-      "name": "Pedro",
-      "age": 9,
-      "severity": 2,
-      "responsible_pro": "Jadiscreusa"
+      "id": "2",
+      "name": "jose",
+      "age": "13",
+      "parents": "mauricio e jonathan",
+      "severity": "1",
+      "responsible_pro": "Roberto"
     }
   ],
   "task": [
     {
+      "dependencies": [],
+      "id": "1",
+      "title": "Desenhar ponto",
+      "description": "A criança deverá desenhar um circulo"
+    },
+    {
       "dependencies": [
-        "22"
+        "1"
       ],
-      "id": "23",
-      "title": "Desenhar circulo",
-      "description": "Desenhar circulo"
+      "id": "2",
+      "title": "Desenhar linha",
+      "description": "A criança deverá desenhar um linha"
+    },
+    {
+      "dependencies": [
+        "1",
+        "2"
+      ],
+      "id": "3",
+      "title": "Desenhar triangulo",
+      "description": "A criança deverá desenhar um triangulo"
+    },
+    {
+      "dependencies": [
+        "1",
+        "2"
+      ],
+      "id": "4",
+      "title": "Desenhar quadrado",
+      "description": "A criança deverá desenhar um quadrado"
     }
   ],
   "task-goals": [
     {
-      "id": "1,2",
+      "id": "1,1",
       "child_id": 1,
       "task_id": 1,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,2",
+      "child_id": 1,
+      "task_id": 2,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,3",
+      "child_id": 1,
+      "task_id": 3,
       "goal": "MA",
       "achieved": true
     },
     {
       "id": "1,4",
       "child_id": 1,
-      "task_id": 1,
-      "goal": "MA",
-      "achieved": true
-    },
-    {
-      "id": "1,1112",
-      "child_id": 1,
-      "task_id": 1,
+      "task_id": 4,
       "goal": "MA",
       "achieved": true
     }

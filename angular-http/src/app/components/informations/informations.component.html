@@ -22,3 +22,9 @@
         
     </tbody>
 </table>
+
+<button type="button" class="btn btn-primary btn-sm" (click)="dependent_goals_func()">Atividades conseguintes</button>
+<div *ngIf="dependent_goals_key">
+        <app-therefore></app-therefore>
+</div>
+
