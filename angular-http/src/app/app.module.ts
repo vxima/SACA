@@ -13,6 +13,7 @@ import { DependentTasksComponent } from './components/dependent-tasks/dependent-
 import { RegisterTaskComponent } from './components/register-task/register-task.component';
 import { ChildrenDetailingComponent } from './components/children-detailing/children-detailing.component';
 import { InformationsComponent } from './components/informations/informations.component';
+import { GoalStatusComponent } from './components/goal-status/goal-status.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InformationsComponent } from './components/informations/informations.co
     DependentTasksComponent,
     RegisterTaskComponent,
     ChildrenDetailingComponent,
-    InformationsComponent
+    InformationsComponent,
+    GoalStatusComponent
   ],
   imports: [
     BrowserModule,
