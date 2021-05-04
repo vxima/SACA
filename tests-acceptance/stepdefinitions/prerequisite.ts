@@ -29,6 +29,5 @@ defineSupportCode(function ({ Given, When, Then }) {
         var allalunos : ElementArrayFinder = element.all(by.name('alunolist'));
         allalunos.filter(elem => pAND(sameCPF(elem,cpf),sameName(elem,name))).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
-    
+    */
 })
-*/
