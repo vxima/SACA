@@ -43,29 +43,51 @@ export class ThereforeComponent implements OnInit {
     set thereforeFinder(task_title: string) {
       
       this.taskGoalService.getTaskGoals().subscribe((taskGoals:TaskGoals[])=>{
-        this.task_title = this.format(task_title)
-        this.taskGoals = taskGoals
-        this.getTaskGoals()
-        this.getTaskId()
-        //console.log(this.task_id)
-        this.taskGoals = this.taskGoals.filter((taskGoal)=>{
-          return this.child_id===taskGoal.child_id
-        })
+        this.taskService.getTasks().subscribe((tasks:Task[])=>{
+          
+          taskGoals = taskGoals.filter((taskGoal)=>{
+            return this.child_id===taskGoal.child_id
+          })
+          this.task_title = this.format(task_title) 
 
-        this.tasks = []
-        this.taskGoals.forEach((taskGoal)=>{
-          this.taskService.getTaskById(taskGoal.task_id).subscribe((task:Task)=>{
-            let arr = task.dependencies.filter((id)=>{
-              return id===this.task_id
-            })
-            if(arr.length !== 0) {
-              this.tasks.push(task)
+          let key = false
+          this.exists = false
+
+          tasks.forEach((task)=>{
+            if(this.format(this.task_title) == this.format(task.title)) {
+              this.task_id = task.id
+              key = true
+              this.exists = true
             }
+          })
+
+          if(!key) this.task_id = -1
+
+          taskGoals.forEach((taskGoal)=>{
+            tasks.forEach((task)=>{
+              if(taskGoal.task_id == task.id) {
+                let arr = task.dependencies.filter((id)=>{
+                  return id == this.task_id
+                })
+                if(arr.length !== 0) {
+                  this.tasks.push(task)
+                }
+              }
+            })
+
+
             
+
+
           })
         })
-        this.task_title = task_title
 
+        
+
+        this.tasks = []
+        
+        this.task_title = task_title
+        this.taskGoals = taskGoals
       })
       
     }
@@ -74,24 +96,12 @@ export class ThereforeComponent implements OnInit {
       return this.task_title
     }
     
-    getTaskGoals() {
-      
-    }
+
 
     getTaskId() {
-      let key = false
-      this.exists = false
-      this.taskService.getTasks().subscribe((tasks:Task[])=>{
-        console.log(tasks)
-        tasks.forEach((task)=>{
-          if(this.format(this.task_title) == this.format(task.title)) {
-            this.task_id = task.id
-            key = true
-            this.exists = true
-          }
-        })
-      })
-      if(!key) this.task_id = -1     
+      
+      
+           
       
     }
 

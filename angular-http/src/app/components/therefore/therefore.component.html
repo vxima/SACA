@@ -1,7 +1,8 @@
-<div>
+<a [routerLink]="['../../informations',child.id]" class="nav-link">Voltar</a>
     <br>
     <h6>Digite a meta: </h6>
-    <input [(ngModel)]="thereforeFinder"> <p *ngIf="task"></p>
+    <input [(ngModel)]="thereforeFinder" name="input_atividade"> 
+    <p *ngIf="task"></p>
 
     <p *ngIf=" task_title != '' ">As atividades que dependem da atividade escolhida são:</p>
     <table class="table table-striped">
@@ -13,7 +14,7 @@
             </tr>
         </thead>
         <body>
-            <tr *ngFor="let t of tasks">
+            <tr *ngFor="let t of tasks" name="atividade_list">
                 <th scope="col">{{ t.id }}</th>
                 <th scope="col">{{ t.title }}</th>
                 <th scope="col">{{ t.description }}</th>
@@ -26,4 +27,4 @@
             </tr>
         </body>
     </table>
-</div>
+

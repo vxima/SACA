@@ -12,19 +12,18 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{ child.id }}</td>
-            <td>{{ child.name }}</td>
-            <td>{{ child.age }}</td>
-            <td>{{ child.parents }}</td>
-            <td>{{ child.severity }}</td>
-            <td>{{ child.responsible_pro }}</td>
+            <td name="td_child_id">{{ child.id }}</td>
+            <td name="td_child_name">{{ child.name }}</td>
+            <td name="td_child_age">{{ child.age }}</td>
+            <td name="td_child_parents">{{ child.parents }}</td>
+            <td name="td_child_severity">{{ child.severity }}</td>
+            <td name="td_child_responsible_pro">{{ child.responsible_pro }}</td>
         </tr>
         
     </tbody>
 </table>
 
-<button type="button" class="btn btn-primary btn-sm" (click)="dependent_goals_func()">Atividades conseguintes</button>
-<div *ngIf="dependent_goals_key">
-        <app-therefore></app-therefore>
-</div>
+<a [routerLink]="['../../therefore',child.id]" class="nav-link" name="funcionalidade">Atividades conseguintes</a>
+
+
 

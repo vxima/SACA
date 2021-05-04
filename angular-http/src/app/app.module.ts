@@ -50,6 +50,9 @@ import { ThereforeComponent } from './components/therefore/therefore.component';
       },
       {
         path: 'informations/:param', component:InformationsComponent
+      },
+      {
+        path: 'therefore/:param', component:ThereforeComponent, 
       }
     ])
   ],
