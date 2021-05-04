@@ -5,6 +5,5 @@ Feature: Como um profissional do SACA
 ############################## GUI Scenarios  ##############################
 Scenario: Obter lista de metas pré-requisitas para determinada metas
     Given: Estou na pagina da criança com id 3
-    And: vejo o profissional responsavel "Roberto"
     When: Solicito as metas necessárias para "Falar frase completa"
     Then: Aparece uma lista das metas pré-requisitas ["Falar sons" , "Falar silabas" , "Falar palavras"]
