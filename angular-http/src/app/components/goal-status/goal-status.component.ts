@@ -77,23 +77,34 @@ export class GoalStatusComponent implements OnInit {
   getTaskId() {
     this.taskService.getTasks().subscribe((tasks: Task[]) => {
       let found = false
+      let found2 = false
       tasks.forEach((task) => {
         if (this.format(this.taskTitle) == this.format(task.title)) {
           found = true
-          this.taskGoalService.getTaskGoal(this.child_id, task.id).subscribe((taskGoal: TaskGoals) => {
-            if (taskGoal.achieved) {
-              this.achievedTasks = 1
-              this.totalTasks = 1
-              this.makeInfo()
-            }
-            else {
-              this.count(task)
-            }
+          this.taskGoalService.getTaskGoals().subscribe((taskGoals: TaskGoals[]) => {
+            taskGoals.forEach((taskGoal: TaskGoals) => {
+              if (taskGoal.child_id == this.child_id && taskGoal.task_id == task.id) {
+                found2 = true
+                if (taskGoal.achieved) {
+                  this.achievedTasks = 1
+                  this.totalTasks = 1
+                  this.makeInfo()
+                }
+                else {
+                  this.count(task)
+                }
+              }
+            })
           })
         }
       })
       if (!found) {
         this.info = "A atividade não existe."
+      }
+      else if (!found2) {
+        this.achievedTasks = 0
+        this.totalTasks = 1
+        this.makeInfo()
       }
     })
   }
