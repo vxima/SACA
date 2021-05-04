@@ -10,7 +10,6 @@ export let config: Config = {
         browserName: 'safari'
     },
 
-
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
 
@@ -19,8 +18,6 @@ export let config: Config = {
     ],
 
     onPrepare: () => {
-
-        //browser.ignoreSynchronization = true;
         browser.manage().window().maximize();
 
     },

@@ -15,9 +15,6 @@ import { ChildrenDetailingComponent } from './components/children-detailing/chil
 import { InformationsComponent } from './components/informations/informations.component';
 import { MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { FilterPipe } from './components/register-task/filter';
-import { SortPipe } from './components/register-task/sort';
-import { SortParamsDirective } from './components/register-task/sortParams';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
@@ -29,10 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     DependentTasksComponent,
     RegisterTaskComponent,
     ChildrenDetailingComponent,
-    InformationsComponent,
-    FilterPipe,
-    SortPipe, 
-    SortParamsDirective
+    InformationsComponent
   ],
   imports: [
     MatSortModule,
@@ -63,7 +57,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       }
     ])
   ],
-  providers: [FilterPipe, SortPipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
