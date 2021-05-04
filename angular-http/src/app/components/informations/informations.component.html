@@ -1,0 +1,29 @@
+<h1>{{child.name}}</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Grau de severidade</th>
+            <th scope="col">Profissional responsável</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td name="td_child_id">{{ child.id }}</td>
+            <td name="td_child_name">{{ child.name }}</td>
+            <td name="td_child_age">{{ child.age }}</td>
+            <td name="td_child_parents">{{ child.parents }}</td>
+            <td name="td_child_severity">{{ child.severity }}</td>
+            <td name="td_child_responsible_pro">{{ child.responsible_pro }}</td>
+        </tr>
+        
+    </tbody>
+</table>
+
+<a [routerLink]="['../../therefore',child.id]" class="nav-link" name="funcionalidade">Atividades conseguintes</a>
+
+
+

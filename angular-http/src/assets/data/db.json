@@ -1,0 +1,84 @@
+{
+  "children": [
+    {
+      "id": "1",
+      "name": "Ana",
+      "age": "10",
+      "parents": "Marcelo e Monica",
+      "severity": "2",
+      "responsible_pro": "Jucelina"
+    },
+    {
+      "id": "2",
+      "name": "Jose",
+      "age": "13",
+      "parents": "mauricio e jonathan",
+      "severity": "1",
+      "responsible_pro": "Roberto"
+    }
+  ],
+  "task": [
+    {
+      "dependencies": [],
+      "id": "1",
+      "title": "Desenhar ponto",
+      "description": "A criança deverá desenhar um ponto"
+    },
+    {
+      "dependencies": [
+        "1"
+      ],
+      "id": "2",
+      "title": "Desenhar linha",
+      "description": "A criança deverá desenhar um linha"
+    },
+    {
+      "dependencies": [
+        "1",
+        "2"
+      ],
+      "id": "3",
+      "title": "Desenhar triangulo",
+      "description": "A criança deverá desenhar um triangulo"
+    },
+    {
+      "dependencies": [
+        "1",
+        "2"
+      ],
+      "id": "4",
+      "title": "Desenhar quadrado",
+      "description": "A criança deverá desenhar um quadrado"
+    }
+  ],
+  "task-goals": [
+    {
+      "id": "1,1",
+      "child_id": 1,
+      "task_id": 1,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,2",
+      "child_id": 1,
+      "task_id": 2,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,3",
+      "child_id": 1,
+      "task_id": 3,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,4",
+      "child_id": 1,
+      "task_id": 4,
+      "goal": "MA",
+      "achieved": true
+    }
+  ]
+}

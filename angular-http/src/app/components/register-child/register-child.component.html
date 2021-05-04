@@ -1,0 +1,79 @@
+<h2>Registrar crianças</h2>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Grau de severidade</th>
+            <th scope="col">Profissional responsável</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let child of children">
+            <td>{{ child.id }}</td>
+            <td>{{ child.name }}</td>
+            <td>{{ child.age }}</td>
+            <td>{{ child.parents }}</td>
+            <td>{{ child.severity }}</td>
+            <td>{{ child.responsible_pro }}</td>
+            <td>
+                <button type="button" class="btn btn-warning btn-sm" (click)="editChild(child)">Editar</button>
+                <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteChild(child)">Deletar</button>
+            </td>
+        </tr>
+    </tbody>
+    <br>
+    <br>
+    <table class="table table-striped">
+            <tr>
+                <th scope="col">Id</th>
+                <th>
+                    <input [(ngModel)]="child.id">
+                </th>
+            </tr>    
+            <tr>
+                <th scope="col">Nome</th>
+                <td>
+                    <input [(ngModel)]="child.name">
+                </td>
+            </tr>    
+            <tr>
+                <th scope="col">Idade</th>
+                <td>
+                    <input [(ngModel)]="child.age">
+                </td>
+            </tr>    
+            <tr>
+                <th scope="col">Pais</th>
+                <td>
+                    <input [(ngModel)]="child.parents">
+                </td>
+            </tr> 
+            <tr>
+                <th scope="col">Grau de severidade</th>
+                <td>
+                    <input [(ngModel)]="child.severity">
+                </td>
+            </tr>    
+            <tr>    
+                <th scope="col">Profissional responsável</th>
+                <td>
+                    <input [(ngModel)]="child.responsible_pro">
+                </td>
+            </tr>    
+            
+        <tbody>
+            <tr>
+                <td>
+
+                    <button type="button" class="btn btn-primary btn-sm" (click)="saveChild()">Salvar</button>
+                    <button type="button" class="btn btn-secondary btn-sm ml-1" (click)="cleanForm()"> Cancelar</button>
+                </td>
+            </tr>
+        </tbody>
+
+</table>

@@ -1,0 +1,30 @@
+<a [routerLink]="['../../informations',child.id]" class="nav-link">Voltar</a>
+    <br>
+    <h6>Digite a meta: </h6>
+    <input [(ngModel)]="thereforeFinder" name="input_atividade"> 
+    <p *ngIf="task"></p>
+
+    <p *ngIf=" task_title != '' ">As atividades que dependem da atividade escolhida são:</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th >Id</th>
+                <th >Título</th>
+                <th >Descrição</th>
+            </tr>
+        </thead>
+        <body>
+            <tr *ngFor="let t of tasks" name="atividade_list">
+                <th scope="col" name="th_id">{{ t.id }}</th>
+                <th scope="col" name="th_title">{{ t.title }}</th>
+                <th scope="col" name="th_description">{{ t.description }}</th>
+            </tr>
+            <tr *ngIf="tasks.length == 0 && exists == true && task_title != ''" class="letraVerde" name="atividade_dependente">
+                <th scope="col">Nenhuma atividade dependente de "{{  task_title  }}"</th>
+            </tr>
+            <tr *ngIf="(tasks.length == 0 && exists == false) && task_title != ''"class="letraLaranja" name="atividade_nc">
+                <th scope="col">A atividade "{{ task_title }}" não está cadastrada</th>
+            </tr>
+        </body>
+    </table>
+
