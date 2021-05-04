@@ -21,7 +21,9 @@ export class InformationsComponent implements OnInit {
     taskGoalService: TaskGoalsService){}
 
   child_id = this.paramSolver(this.activateRoute.snapshot.paramMap.get('param'))
-
+  prerequisite_goals_key = false;
+  child = {} as Child
+  
   paramSolver(param :string|null) {
     if(param === null) {
       return  0
@@ -29,12 +31,14 @@ export class InformationsComponent implements OnInit {
     return Number.parseInt(param)
   }
 
-  child = {} as Child
+  
   ngOnInit(): void {
     this.child_id = this.paramSolver(this.activateRoute.snapshot.paramMap.get('param'))
     this.childService.getChildById(this.child_id).subscribe((child)=>{
       this.child = child
     })
   }
-
+  prerequisite_goals_func(){
+    this.prerequisite_goals_key = !this.prerequisite_goals_key
+  }
 }

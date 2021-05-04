@@ -1,0 +1,23 @@
+<div>
+    <br>
+    <h6>Digite a meta: </h6>
+    <input [(ngModel)]="prerequisiteFinder" name= "taskbox">
+
+    <p *ngIf=" task_title != '' ">As atividades pré-requisitas da meta escolhida são:</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th >Id</th>
+                <th >Título</th>
+                <th >Descrição</th>
+            </tr>
+        </thead>
+        <body>
+            <tr *ngFor="let task of tasks">
+                <th scope="col">{{ task.id }}</th>
+                <th scope="col">{{ task.title }}</th>
+                <th scope="col">{{ task.description }}</th>
+            </tr>
+        </body>
+    </table>
+</div>

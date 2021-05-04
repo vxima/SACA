@@ -1,56 +1,151 @@
 {
   "children": [
     {
-      "id": 249,
-      "name": "Victor",
-      "age": 9,
-      "severity": 2,
-      "responsible_pro": "Jadiscreusa"
+      "id": "1",
+      "name": "ana",
+      "age": "10",
+      "parents": "Marcelo e Monica",
+      "severity": "2",
+      "responsible_pro": "Jucelina"
     },
     {
-      "id": 884,
-      "name": "Cleiton",
-      "age": 11,
-      "severity": 3,
-      "responsible_pro": "Jordalia"
+      "id": "2",
+      "name": "jose",
+      "age": "13",
+      "parents": "mauricio e jonathan",
+      "severity": "1",
+      "responsible_pro": "Roberto"
     },
     {
-      "id": "243",
-      "name": "Pedro",
-      "age": 9,
-      "severity": 2,
-      "responsible_pro": "Jadiscreusa"
+      "id": "3",
+      "name": "Jonathan",
+      "age": "4",
+      "parents": "George e Maria",
+      "severity": "3",
+      "responsible_pro": "Roberto"
     }
   ],
   "task": [
     {
+      "dependencies": [],
+      "id": "1",
+      "title": "Desenhar ponto",
+      "description": "A criança deverá desenhar um ponto"
+    },
+    {
       "dependencies": [
-        "22"
+        "1"
       ],
-      "id": "23",
-      "title": "Desenhar circulo",
-      "description": "Desenhar circulo"
+      "id": "2",
+      "title": "Desenhar linha",
+      "description": "A criança deverá desenhar um linha"
+    },
+    {
+      "dependencies": [
+        "1",
+        "2"
+      ],
+      "id": "3",
+      "title": "Desenhar triangulo",
+      "description": "A criança deverá desenhar um triangulo"
+    },
+    {
+      "dependencies": [
+        "1",
+        "2"
+      ],
+      "id": "4",
+      "title": "Desenhar quadrado",
+      "description": "A criança deverá desenhar um quadrado"
+    },
+    {
+      "dependencies": [],
+      "id": "5",
+      "title": "Falar sons",
+      "description": "A criança deverá falar sons"
+    },
+    {
+      "dependencies": [
+        "5"
+      ],
+      "id": "6",
+      "title": "Falar sílabas",
+      "description": "A criança deverá falar sílabas"
+    },
+    {
+      "dependencies": [
+        "5",
+        "6"
+      ],
+      "id": "7",
+      "title": "Falar palavras",
+      "description": "A criança deverá falar palavras completas"
+    },
+    {
+      "dependencies": [
+        "5",
+        "6",
+        "7"
+      ],
+      "id": "8",
+      "title": "Falar frase completa",
+      "description": "A criança deverá falar frases completas "
     }
   ],
   "task-goals": [
     {
-      "id": "1,2",
+      "id": "1,1",
       "child_id": 1,
       "task_id": 1,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,2",
+      "child_id": 1,
+      "task_id": 2,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "1,3",
+      "child_id": 1,
+      "task_id": 3,
       "goal": "MA",
       "achieved": true
     },
     {
       "id": "1,4",
       "child_id": 1,
-      "task_id": 1,
+      "task_id": 4,
       "goal": "MA",
       "achieved": true
     },
     {
-      "id": "1,1112",
-      "child_id": 1,
-      "task_id": 1,
+      "id": "3,5",
+      "child_id": 3,
+      "task_id": 5,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "3,6",
+      "child_id": 3,
+      "task_id": 6,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "3,7",
+      "child_id": 3,
+      "task_id": 7,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "3,8",
+      "child_id": 3,
+      "task_id": 8,
       "goal": "MA",
       "achieved": true
     }
