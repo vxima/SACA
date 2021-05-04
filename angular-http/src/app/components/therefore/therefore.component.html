@@ -1,7 +1,7 @@
 <div>
     <br>
     <h6>Digite a meta: </h6>
-    <input [(ngModel)]="thereforeFinder">
+    <input [(ngModel)]="thereforeFinder"> <p *ngIf="task"></p>
 
     <p *ngIf=" task_title != '' ">As atividades que dependem da meta escolhida são:</p>
     <table class="table table-striped">
@@ -13,10 +13,10 @@
             </tr>
         </thead>
         <body>
-            <tr *ngFor="let task of tasks">
-                <th scope="col">{{ task.id }}</th>
-                <th scope="col">{{ task.title }}</th>
-                <th scope="col">{{ task.description }}</th>
+            <tr *ngFor="let t of tasks">
+                <th scope="col">{{ t.id }}</th>
+                <th scope="col">{{ t.title }}</th>
+                <th scope="col">{{ t.description }}</th>
             </tr>
         </body>
     </table>

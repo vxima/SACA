@@ -22,7 +22,7 @@
       "dependencies": [],
       "id": "1",
       "title": "Desenhar ponto",
-      "description": "A criança deverá desenhar um circulo"
+      "description": "A criança deverá desenhar um ponto"
     },
     {
       "dependencies": [

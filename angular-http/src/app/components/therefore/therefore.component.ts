@@ -25,6 +25,7 @@ export class ThereforeComponent implements OnInit {
     
     child_id = this.paramSolver(this.activateRoute.snapshot.paramMap.get('param'))
     child = {} as Child
+    task = {} as Task
     task_title = ""
     task_id = -1
     taskGoals: TaskGoals[] = []
@@ -39,28 +40,32 @@ export class ThereforeComponent implements OnInit {
     }
     
     set thereforeFinder(task_title: string) {
-      this.task_title = this.format(task_title)
-      this.getTaskGoals()
-      this.getTaskId()
-      //console.log(this.task_id)
-      this.taskGoals = this.taskGoals.filter((taskGoal)=>{
-        return this.child_id===taskGoal.child_id
-      })
-
-      this.tasks = []
-      this.taskGoals.forEach((taskGoal)=>{
-        this.taskService.getTaskById(taskGoal.task_id).subscribe((task:Task)=>{
-          let arr = task.dependencies.filter((id)=>{
-            return id===this.task_id
-          })
-          if(arr.length !== 0) {
-            this.tasks.push(task)
-          }
-          
+      
+      this.taskGoalService.getTaskGoals().subscribe((taskGoals:TaskGoals[])=>{
+        this.task_title = this.format(task_title)
+        this.taskGoals = taskGoals
+        this.getTaskGoals()
+        this.getTaskId()
+        //console.log(this.task_id)
+        this.taskGoals = this.taskGoals.filter((taskGoal)=>{
+          return this.child_id===taskGoal.child_id
         })
-      })
-      this.task_title = task_title
 
+        this.tasks = []
+        this.taskGoals.forEach((taskGoal)=>{
+          this.taskService.getTaskById(taskGoal.task_id).subscribe((task:Task)=>{
+            let arr = task.dependencies.filter((id)=>{
+              return id===this.task_id
+            })
+            if(arr.length !== 0) {
+              this.tasks.push(task)
+            }
+            
+          })
+        })
+        this.task_title = task_title
+      })
+      
     }
 
     get thereforeFinder() :string{
@@ -68,9 +73,7 @@ export class ThereforeComponent implements OnInit {
     }
     
     getTaskGoals() {
-      this.taskGoalService.getTaskGoals().subscribe((taskGoals:TaskGoals[])=>{
-        this.taskGoals = taskGoals
-      })
+      
     }
 
     getTaskId() {
@@ -89,9 +92,14 @@ export class ThereforeComponent implements OnInit {
     }
 
     format(text:string):string {
+      let newText = ""
       text = text.toLowerCase()
-      text = text.replace(' ', '')
-      return text
+      for(let i = 0; i < text.length; i++) {
+        if((text[i]>='a' && text[i]<='z') || (text[i]>='A' && text[i]<='Z')) {
+          newText = newText + text[i]
+        }
+      }
+      return newText
     }
     paramSolver(param :string|null) {
       if(param === null) {
