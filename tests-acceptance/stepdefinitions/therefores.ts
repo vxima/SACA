@@ -17,12 +17,24 @@ let cmp = ((elem, trio) => {
     
 });
 
-let cmpM = ((elem, val) => {
-    var sentence = true
-    sentence = sentence && elem.element(by.name('atividade_dependente')).getText().then(text => text === val)
-    return sentence
-    
-});
+/* funcao auxiliar para descobrir as atividades que dependem de outra em especifico */
+async function getDependencies(params): Promise<any[]> {
+    let ans = []
+    await request.get(base_service_url + "task")
+        .then(body => {
+            let obj = JSON.parse(body)
+            
+            obj.forEach(element => {
+                let arr = element.dependencies.filter((dep)=>dep==params)
+                if(arr.length == 1) {
+                    ans.push(element)
+                }
+            });  
+             
+        })
+        return ans 
+}
+
 
 var base_service_url = "http://localhost:3000/";
 let pAND = ((p,q) => p.then(a => q.then(b => a && b)))
@@ -152,33 +164,19 @@ defineSupportCode(function ({ Given, When, Then }) {
                 })      
      });
      When(/^Solicito as atividades que tem atividade "(\d*)" como pré-requisito$/, async (therefore) => {
-        await request.get(base_service_url + "task")
-        .then(body => {
-            let obj = JSON.parse(body)
-            let ans = []
-            obj.forEach(element => {
-                let arr = element.dependencies.filter((dep)=>dep==therefore)
-                if(arr.length == 1) {
-                    ans.push(element)
-                }
-            });
-            return expect(ans.length).to.equal(2);    
-            
+        
+        /* Contando se pegou o numero certo */
+        getDependencies(therefore).then((ans)=>{
+            return expect(ans.length).to.equal(2);
         })
+        
      });
      
      Then(/^O sistema retorna que  a lista de atividades com pré-requisito em "(\d*)" são "(\d*)" e "(\d*)"$/, async (therefore, d1, d2) => {
-        await request.get(base_service_url + "task")
-        .then(body => {
-            
-            let obj = JSON.parse(body)
-            let ans = []
-            obj.forEach(element => {
-                let arr = element.dependencies.filter((dep)=>dep==therefore)
-                if(arr.length == 1) {
-                    ans.push(element)
-                }
-            });
+        
+        /* Comparando o obtido com o esperado */
+        getDependencies(therefore).then((ans)=>{
+        
             let arr = [
             {
              dependencies: [
@@ -199,6 +197,7 @@ defineSupportCode(function ({ Given, When, Then }) {
              description: "A criança deverá desenhar um quadrado"
             }
           ]
+
             return expect(JSON.stringify(ans)).to.equal(JSON.stringify(arr));   
         })
      });
