@@ -2,7 +2,7 @@
   "children": [
     {
       "id": "1",
-      "name": "ana",
+      "name": "Ana",
       "age": "10",
       "parents": "Marcelo e Monica",
       "severity": "2",
@@ -10,7 +10,7 @@
     },
     {
       "id": "2",
-      "name": "jose",
+      "name": "Jose",
       "age": "13",
       "parents": "mauricio e jonathan",
       "severity": "1",
