@@ -30,6 +30,7 @@ export class ThereforeComponent implements OnInit {
     task_id = -1
     taskGoals: TaskGoals[] = []
     tasks: Task[] = []
+    exists = false
     
     ngOnInit(): void {
       this.child_id = this.paramSolver(this.activateRoute.snapshot.paramMap.get('param'))
@@ -64,6 +65,7 @@ export class ThereforeComponent implements OnInit {
           })
         })
         this.task_title = task_title
+
       })
       
     }
@@ -78,12 +80,14 @@ export class ThereforeComponent implements OnInit {
 
     getTaskId() {
       let key = false
+      this.exists = false
       this.taskService.getTasks().subscribe((tasks:Task[])=>{
         console.log(tasks)
         tasks.forEach((task)=>{
           if(this.format(this.task_title) == this.format(task.title)) {
             this.task_id = task.id
             key = true
+            this.exists = true
           }
         })
       })
