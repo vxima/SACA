@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Directive, Output, HostListener, EventEmitter, ElementRef } from '@angular/core';
 import {Sort} from '@angular/material/sort';
 import { TaskGoalsService } from 'src/app/services/task-goals.service';
 import {MatSort} from '@angular/material/sort';
@@ -6,11 +6,13 @@ import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { Task } from '../../models/task'
 import { TaskService } from '../../services/task.service'
 import { from } from 'rxjs';
+import { FilterPipe } from './filter';
 
 @Component({
   selector: 'app-register-task',
   templateUrl: './register-task.component.html',
-  styleUrls: ['./register-task.component.css']
+  styleUrls: ['./register-task.component.css'],
+  // providers: [FilterPipe]
 })
 
 export class RegisterTaskComponent implements OnInit, AfterViewInit {
@@ -22,6 +24,10 @@ export class RegisterTaskComponent implements OnInit, AfterViewInit {
   tasks: Task[] = []
   displayedColumns: string[] = ['id', 'title', 'description', 'difficulty'];
   dataSource = new MatTableDataSource(this.tasks);
+  // searchTerm:string ="";
+  // direction:string="asc";
+  // column:string="first";
+  // type:number=1;
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<any>;
@@ -61,10 +67,15 @@ export class RegisterTaskComponent implements OnInit, AfterViewInit {
     })
   }
 
+  // setSortParams(param:any){
+  //   this.direction=param.dir;
+  //   this.column=param.col;
+  //   this.type=param.typ;
+  //   }
+
   cleanForm(/*form: NgForm*/) {
     //form.resetForm();
     this.task = {} as Task;
     this.task.dependencies = []
   }
-
 }

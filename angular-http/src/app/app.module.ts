@@ -15,6 +15,10 @@ import { ChildrenDetailingComponent } from './components/children-detailing/chil
 import { InformationsComponent } from './components/informations/informations.component';
 import { MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { FilterPipe } from './components/register-task/filter';
+import { SortPipe } from './components/register-task/sort';
+import { SortParamsDirective } from './components/register-task/sortParams';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { MatSortModule } from '@angular/material/sort';
     DependentTasksComponent,
     RegisterTaskComponent,
     ChildrenDetailingComponent,
-    InformationsComponent
+    InformationsComponent,
+    FilterPipe,
+    SortPipe, 
+    SortParamsDirective
   ],
   imports: [
     MatSortModule,
@@ -34,6 +41,7 @@ import { MatSortModule } from '@angular/material/sort';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatFormFieldModule,
     RouterModule.forRoot([
       {
         path: '', redirectTo:'home-page', pathMatch: 'full'
@@ -55,7 +63,7 @@ import { MatSortModule } from '@angular/material/sort';
       }
     ])
   ],
-  providers: [],
+  providers: [FilterPipe, SortPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
