@@ -27,4 +27,8 @@
 </button>
 <div *ngIf="goal_status">
     <app-goal-status></app-goal-status>
+
+<button type="button" class="btn btn-primary btn-sm" (click)="prerequisite_goals_func()">Atividade Pré-requisitas</button>
+<div *ngIf="prerequisite_goals_key">
+        <app-prerequisite></app-prerequisite>
 </div>
