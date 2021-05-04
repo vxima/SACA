@@ -41,55 +41,71 @@ export class ThereforeComponent implements OnInit {
     }
     
     set thereforeFinder(task_title: string) {
-      
+  
+      /* salvando em taskGoals e em tasks, todas as informacoes necessarias 
+      para nao precisar usar mais subscribes*/
       this.taskGoalService.getTaskGoals().subscribe((taskGoals:TaskGoals[])=>{
         this.taskService.getTasks().subscribe((tasks:Task[])=>{
+
+          /* metodo para tirar possiveis erros do titulo da task */
+          this.task_title = this.format(task_title)
           
-          taskGoals = taskGoals.filter((taskGoal)=>{
-            return this.child_id===taskGoal.child_id
-          })
-          this.task_title = this.format(task_title) 
-
-          let key = false
-          this.exists = false
-
-          tasks.forEach((task)=>{
-            if(this.format(this.task_title) == this.format(task.title)) {
-              this.task_id = task.id
-              key = true
-              this.exists = true
-            }
-          })
-
-          if(!key) this.task_id = -1
-
-          taskGoals.forEach((taskGoal)=>{
-            tasks.forEach((task)=>{
-              if(taskGoal.task_id == task.id) {
-                let arr = task.dependencies.filter((id)=>{
-                  return id == this.task_id
-                })
-                if(arr.length !== 0) {
-                  this.tasks.push(task)
-                }
-              }
-            })
-          })
+          /*Metodo para obter o Id da task digitada pelo usuario a partir do título dela */
+          this.getTaskId(tasks)
+          
+          /*Metodo principal para encontrar as tasks dependentes */
+          this.findDependentTasks(taskGoals, tasks) 
+          
+           /* Retorna o titulo ao original escrito pelo usuario*/
           this.task_title = task_title
-        })
-        this.tasks = []
-        
-        this.taskGoals = taskGoals
 
-        
+        })  
       })
-      
+      /* Ao final, reinicio as tasks */
+      this.tasks = []      
     }
 
     get thereforeFinder() :string{
       return this.task_title
     }
     
+    findDependentTasks(taskGoals:TaskGoals[], tasks:Task[]) {
+      
+      /* Filtrando as taskGoals que referenciam o usuario */
+      taskGoals = taskGoals.filter((taskGoal)=>{
+        return this.child_id===taskGoal.child_id
+      })
+
+      /* Para pra todas as tasks que se ligam a alguma taskGoal que referencie Child 
+      Ele procura para ver se a task que digitamos está nas dependencias da task sendo testada*/
+      taskGoals.forEach((taskGoal)=>{
+        tasks.forEach((task)=>{
+          if(taskGoal.task_id == task.id) {
+            let arr = task.dependencies.filter((id)=>{
+              return id == this.task_id
+            })
+            if(arr.length !== 0) {
+              this.tasks.push(task)
+            }
+          }
+        })
+      })
+
+    }
+    getTaskId(tasks:Task[]) {
+
+      let key = false
+      this.exists = false
+      tasks.forEach((task)=>{
+        if(this.format(this.task_title) == this.format(task.title)) {
+          this.task_id = task.id
+          key = true
+          this.exists = true
+        }
+      })
+      if(!key) this.task_id = -1
+
+    }
     format(text:string):string {
       let newText = ""
       text = text.toLowerCase()
