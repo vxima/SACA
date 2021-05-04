@@ -17,12 +17,11 @@
     "cucumber": "^2.3.0",
     "mkdirp": "^0.5.1",
     "protractor-cucumber-framework": "^3.1.1",
-    "typescript": "^3.9.7"
+    "typescript": "^2.9.2"
   },
   "dependencies": {
     "cucumber-html-reporter": "^4.0.5",
     "protractor": "^5.1.2",
-    "ts-node": "^3.1.0",
-    "webdriver": "^7.5.3"
+    "ts-node": "^3.1.0"
   }
 }
