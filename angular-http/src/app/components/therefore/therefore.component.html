@@ -18,6 +18,9 @@
                 <th scope="col">{{ t.title }}</th>
                 <th scope="col">{{ t.description }}</th>
             </tr>
+            <tr *ngIf="tasks.length == 0">
+                <th scope="col">Nenhuma meta dependente</th>
+            </tr>
         </body>
     </table>
 </div>
