@@ -1,0 +1,30 @@
+<h1>Detalhamento das crianças</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Grau de severidade</th>
+            <th scope="col">Profissional responsável</th>
+            <th scope="col">Para consultas:</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let child of children">
+            <td>{{ child.id }}</td>
+            <td>{{ child.name }}</td>
+            <td>{{ child.age }}</td>
+            <td>{{ child.parents }}</td>
+            <td>{{ child.severity }}</td>
+            <td>{{ child.responsible_pro }}</td>
+            <td>
+                <a [routerLink]="['/informations',child.id]" class="nav-link">Informações</a>
+            
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
