@@ -3,10 +3,8 @@
   "description": "Testes de aceitação do teaching assistant",
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc",
-    "testCreateOccurrence": "npm run tsc && protractor compiledCode/tests-acceptance/config/configCreateOccurrence.js",
-    "test-filter-occurrences-by-time": "npm run tsc && protractor compiledCode/tests-acceptance/config/configFilterOccurrencesByTime.js",
-    "test": "npm run tsc && protractor compiledCode/tests-acceptance/config/config.js",
-    "ztest": "npx tsc && protractor compiledCode/tests-acceptance/config/configShowMaps.js",
+    "test": "npm run tsc && protractor compiledCode/config/config.js",
+    "ztest": "npx tsc && protractor compiledCode/config/configShowMaps.js",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start",
     "webdriver": "webdriver-manager update && webdriver-manager start"

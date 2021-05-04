@@ -5,7 +5,7 @@ export let config: Config = {
     seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
 
     SELENIUM_PROMISE_MANAGER: false,
-
+    marionette: false,
     capabilities: {
         browserName: 'firefox'
     },
@@ -19,8 +19,8 @@ export let config: Config = {
 
     onPrepare: () => {
 
-        browser.ignoreSynchronization = true;
-        browser.manage().window().maximize();
+        //browser.ignoreSynchronization = true;
+        //browser.manage().window().maximize();
 
     },
     cucumberOpts: {
