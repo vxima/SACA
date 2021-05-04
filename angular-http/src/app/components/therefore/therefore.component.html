@@ -3,7 +3,7 @@
     <h6>Digite a meta: </h6>
     <input [(ngModel)]="thereforeFinder"> <p *ngIf="task"></p>
 
-    <p *ngIf=" task_title != '' ">As atividades que dependem da meta escolhida são:</p>
+    <p *ngIf=" task_title != '' ">As atividades que dependem da atividade escolhida são:</p>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -18,11 +18,11 @@
                 <th scope="col">{{ t.title }}</th>
                 <th scope="col">{{ t.description }}</th>
             </tr>
-            <tr *ngIf="tasks.length == 0 && exists == true && task_title != ''">
-                <th scope="col">Nenhuma meta dependente</th>
+            <tr *ngIf="tasks.length == 0 && exists == true && task_title != ''" class="letraVerde">
+                <th scope="col">Nenhuma atividade dependente de "{{  task_title  }}"</th>
             </tr>
-            <tr *ngIf="(tasks.length == 0 && exists == false) && task_title != ''">
-                <th scope="col">Meta não cadastrada</th>
+            <tr *ngIf="(tasks.length == 0 && exists == false) && task_title != ''"class="letraLaranja">
+                <th scope="col">A atividade "{{ task_title }}" não está cadastrada</th>
             </tr>
         </body>
     </table>
