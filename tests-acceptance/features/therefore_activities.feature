@@ -23,3 +23,10 @@ Given vejo o profissional responsavel "Jucelina" e o nome da criança "Ana"
 Given Seleciono o link "Atividades conseguintes"
 When Solicito as atividades que tem "Desenhar circulo" como pré-requisito
 Then Aparece uma lista com uma linha laranja indicando que "Atividade não cadastrada"
+
+############################## Service Scenarios  ##############################
+
+Scenario: Obter lista de quais atividades tem como pré-requisito atividade "2", service
+Given O sistema tem registrado que a atividade de id "3" e "4" depende de "2"
+When Solicito as atividades que tem atividade "2" como pré-requisito
+Then O sistema retorna que  a lista de atividades com pré-requisito em "2" são "3" e "4"
