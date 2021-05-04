@@ -74,20 +74,14 @@ export class ThereforeComponent implements OnInit {
                 }
               }
             })
-
-
-            
-
-
           })
+          this.task_title = task_title
         })
-
-        
-
         this.tasks = []
         
-        this.task_title = task_title
         this.taskGoals = taskGoals
+
+        
       })
       
     }
@@ -96,15 +90,6 @@ export class ThereforeComponent implements OnInit {
       return this.task_title
     }
     
-
-
-    getTaskId() {
-      
-      
-           
-      
-    }
-
     format(text:string):string {
       let newText = ""
       text = text.toLowerCase()
