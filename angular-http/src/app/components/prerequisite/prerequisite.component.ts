@@ -7,6 +7,7 @@ import { TaskService } from 'src/app/services/task.service';
 import { Child } from '../../models/child'
 import { TaskGoals } from 'src/app/models/task-goals';
 import { Task } from 'src/app/models/task';
+import { find } from 'rxjs/operators';
 
 @Component({
   selector: 'app-prerequisite',
@@ -27,7 +28,6 @@ export class PrerequisiteComponent implements OnInit {
     task_id = -1
     taskGoals: TaskGoals[] = []
     tasks: Task[] = []
-    dependencies: number[] = []
 
   ngOnInit(): void {
       this.child_id = this.paramSolver(this.activateRoute.snapshot.paramMap.get('param'))
@@ -41,19 +41,20 @@ export class PrerequisiteComponent implements OnInit {
     this.task_title = this.format(task_title)
       this.getTaskGoals()
       this.getTaskId()
-      this.taskGoals = this.taskGoals.filter((taskGoal)=>{
-        return this.child_id===taskGoal.child_id
-      })
-      
-      this.tasks = []
-      this.dependencies = []
+      this.findDependencies()
+      this.task_title = task_title
+  }
+  
+  get prerequisiteFinder() :string{
+    return this.task_title
+  }
+  findDependencies(){
+    this.tasks = []
       this.taskGoals.forEach((taskGoal)=>{
         this.taskService.getTaskById(taskGoal.task_id).subscribe((task:Task)=>{
           if(task.id === this.task_id){
-            
-            this.dependencies = task.dependencies
-            if(this.dependencies.length !== 0){
-              this.dependencies.forEach((id)=>{
+            if(task.dependencies.length !== 0){
+              task.dependencies.forEach((id)=>{
                 this.tasks = []
                 this.taskService.getTaskById(id).subscribe((task:Task)=>{
                   this.tasks.push(task)
@@ -64,15 +65,7 @@ export class PrerequisiteComponent implements OnInit {
           }
         })
       })
-      this.task_title = task_title
-     
-
   }
-  
-  get prerequisiteFinder() :string{
-    return this.task_title
-  }
-
   getTaskGoals() {
     this.taskGoalService.getTaskGoals().subscribe((taskGoals:TaskGoals[])=>{
       this.taskGoals = taskGoals
