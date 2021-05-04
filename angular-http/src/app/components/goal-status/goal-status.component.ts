@@ -29,11 +29,8 @@ export class GoalStatusComponent implements OnInit {
   task_id: number = -1
   taskTitle: string = ""
   info: string = ""
-  taskGoal = {} as TaskGoals
   totalTasks: number = 0
   achievedTasks: number = 0
-  task = {} as Task
-  dependencies: number[] = []
   percent: number = 0
   wait: number = 0
 
@@ -66,12 +63,6 @@ export class GoalStatusComponent implements OnInit {
 
   getInfo() {
     return this.info
-  }
-
-  getDependenciesTasks(task_id: number) {
-    this.taskService.getTaskById(task_id).subscribe((task: Task) => {
-      this.dependencies = task.dependencies
-    })
   }
 
   getTaskId() {
@@ -112,8 +103,6 @@ export class GoalStatusComponent implements OnInit {
   count(task: Task) {
     this.wait = task.dependencies_number
     this.totalTasks = task.dependencies_number
-    console.log(this.totalTasks)
-    console.log(task.id)
     task.dependencies.forEach((task_id) => {
       this.countTaskGoal(task_id)
     })
