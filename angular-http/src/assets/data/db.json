@@ -15,6 +15,14 @@
       "parents": "mauricio e jonathan",
       "severity": "1",
       "responsible_pro": "Roberto"
+    },
+    {
+      "id": "3",
+      "name": "Jonathan",
+      "age": "4",
+      "parents": "George e Maria",
+      "severity": "3",
+      "responsible_pro": "Roberto"
     }
   ],
   "task": [
@@ -49,6 +57,39 @@
       "id": "4",
       "title": "Desenhar quadrado",
       "description": "A criança deverá desenhar um quadrado"
+    },
+    {
+      "dependencies": [],
+      "id": "5",
+      "title": "Falar sons",
+      "description": "A criança deverá falar sons"
+    },
+    {
+      "dependencies": [
+        "5"
+      ],
+      "id": "6",
+      "title": "Falar sílabas",
+      "description": "A criança deverá falar sílabas"
+    },
+    {
+      "dependencies": [
+        "5",
+        "6"
+      ],
+      "id": "7",
+      "title": "Falar palavras",
+      "description": "A criança deverá falar palavras completas"
+    },
+    {
+      "dependencies": [
+        "5",
+        "6",
+        "7"
+      ],
+      "id": "8",
+      "title": "Falar frase completa",
+      "description": "A criança deverá falar frases completas "
     }
   ],
   "task-goals": [
@@ -77,6 +118,34 @@
       "id": "1,4",
       "child_id": 1,
       "task_id": 4,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "3,5",
+      "child_id": 3,
+      "task_id": 5,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "3,6",
+      "child_id": 3,
+      "task_id": 6,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "3,7",
+      "child_id": 3,
+      "task_id": 7,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "3,8",
+      "child_id": 3,
+      "task_id": 8,
       "goal": "MA",
       "achieved": true
     }
