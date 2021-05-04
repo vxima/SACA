@@ -1,23 +1,27 @@
 <h1>Registro de atividades</h1>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Título</th>
-            <th scope="col">Descrição</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let task of tasks">
-            <td>{{ task.id }}</td>
-            <td>{{ task.title }}</td>
-            <td>{{ task.description }}</td>
-            <td>
-                <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteTask(task)">Deletar</button>
-            </td>
-        </tr>
-    </tbody>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Título </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="difficulty">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dificuldade </th>
+        <td mat-cell *matCellDef="let element"> {{element.difficulty}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+<!--    <td>
+        <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteTask(task)">Deletar</button>
+    </td> -->
 </table>
 <table class="table table-striped">
     <tr>
@@ -36,6 +40,18 @@
         <th scope="col">Descrição</th>
         <td>
             <textarea [(ngModel)]="task.description"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <th scope="col">Dificuldade</th>
+        <td>
+            <select [(ngModel)]="task.difficulty">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
         </td>
     </tr>
     <tr>

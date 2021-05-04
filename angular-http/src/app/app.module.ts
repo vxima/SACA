@@ -13,6 +13,8 @@ import { DependentTasksComponent } from './components/dependent-tasks/dependent-
 import { RegisterTaskComponent } from './components/register-task/register-task.component';
 import { ChildrenDetailingComponent } from './components/children-detailing/children-detailing.component';
 import { InformationsComponent } from './components/informations/informations.component';
+import { MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { InformationsComponent } from './components/informations/informations.co
     InformationsComponent
   ],
   imports: [
+    MatSortModule,
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
