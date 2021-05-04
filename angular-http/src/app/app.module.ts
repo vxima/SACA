@@ -13,6 +13,7 @@ import { DependentTasksComponent } from './components/dependent-tasks/dependent-
 import { RegisterTaskComponent } from './components/register-task/register-task.component';
 import { ChildrenDetailingComponent } from './components/children-detailing/children-detailing.component';
 import { InformationsComponent } from './components/informations/informations.component';
+import { GoalStatusComponent } from './components/goal-status/goal-status.component';
 import { PrerequisiteComponent } from './components/prerequisite/prerequisite.component';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PrerequisiteComponent } from './components/prerequisite/prerequisite.co
     RegisterTaskComponent,
     ChildrenDetailingComponent,
     InformationsComponent,
+    GoalStatusComponent
     PrerequisiteComponent
   ],
   imports: [

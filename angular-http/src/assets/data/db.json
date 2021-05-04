@@ -77,6 +77,38 @@
         "5",
         "6"
       ],
+      "id": "23",
+      "title": "Desenhar circulo",
+      "description": "Desenhar circulo",
+      "dependencies_number": 1
+    },
+    {
+      "id": "90",
+      "title": "matematica",
+      "description": "desenvolver calculos matematicos",
+      "dependencies_number": 3,
+      "dependencies": [
+        "91",
+        "92",
+        "93"
+      ]
+    },
+    {
+      "id": "91",
+      "title": "somar",
+      "description": "adicionar numeros"
+    },
+    {
+      "id": "92",
+      "title": "subtrair",
+      "description": "subtrair numeros"
+    },
+    {
+      "id": "93",
+      "title": "multiplicar",
+      "description": "multiplicar numeros"
+    },
+    {
       "id": "7",
       "title": "Falar palavras",
       "description": "A criança deverá falar palavras completas"
@@ -93,6 +125,27 @@
     }
   ],
   "task-goals": [
+    {
+      "id": "243,90",
+      "child_id": 243,
+      "task_id": 90,
+      "goal": "MANA",
+      "achieved": false
+    },
+    {
+      "id": "243,91",
+      "child_id": 243,
+      "task_id": 91,
+      "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "243,92",
+      "child_id": 243,
+      "task_id": 92,
+      "goal": "MA",
+      "achieved": true
+    },
     {
       "id": "1,1",
       "child_id": 1,
@@ -147,6 +200,12 @@
       "child_id": 3,
       "task_id": 8,
       "goal": "MA",
+      "achieved": true
+    },
+    {
+      "id": "243,23",
+      "child_id": 243,
+      "task_id": 1,
       "achieved": true
     }
   ]

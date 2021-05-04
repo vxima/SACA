@@ -18,9 +18,11 @@ export class InformationsComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private childService: ChildService,
     taskService: TaskService,
-    taskGoalService: TaskGoalsService){}
+    taskGoalService: TaskGoalsService) { }
 
   child_id = this.paramSolver(this.activateRoute.snapshot.paramMap.get('param'))
+  goal_status = false;
+
   prerequisite_goals_key = false;
   child = {} as Child
   
@@ -34,9 +36,13 @@ export class InformationsComponent implements OnInit {
   
   ngOnInit(): void {
     this.child_id = this.paramSolver(this.activateRoute.snapshot.paramMap.get('param'))
-    this.childService.getChildById(this.child_id).subscribe((child)=>{
+    this.childService.getChildById(this.child_id).subscribe((child) => {
       this.child = child
     })
+  }
+
+  set_goal_status_function() {
+    this.goal_status = true;
   }
   prerequisite_goals_func(){
     this.prerequisite_goals_key = !this.prerequisite_goals_key

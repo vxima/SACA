@@ -1,0 +1,12 @@
+<div>
+    <br>
+    <h6>Digite o id da criança: </h6>
+    <input [(ngModel)]="def_id">
+    <br>
+    <h6>Digite a meta desejada: </h6>
+    <input [(ngModel)]="def_goalName">
+    <br>
+    <button (click)="search()">Calcular</button>
+    <br>
+    <p *ngIf="getInfo() != ''"> {{getInfo()}} </p>
+</div>
