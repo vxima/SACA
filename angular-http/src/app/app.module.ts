@@ -26,7 +26,7 @@ import { PrerequisiteComponent } from './components/prerequisite/prerequisite.co
     RegisterTaskComponent,
     ChildrenDetailingComponent,
     InformationsComponent,
-    GoalStatusComponent
+    GoalStatusComponent,
     PrerequisiteComponent
   ],
   imports: [
@@ -36,22 +36,22 @@ import { PrerequisiteComponent } from './components/prerequisite/prerequisite.co
     FormsModule,
     RouterModule.forRoot([
       {
-        path: '', redirectTo:'home-page', pathMatch: 'full'
+        path: '', redirectTo: 'home-page', pathMatch: 'full'
       },
       {
-        path: 'home-page', component:HomePageComponent
+        path: 'home-page', component: HomePageComponent
       },
       {
-        path: 'register-child', component:RegisterChildComponent
+        path: 'register-child', component: RegisterChildComponent
       },
       {
-        path: 'register-task', component:RegisterTaskComponent
+        path: 'register-task', component: RegisterTaskComponent
       },
       {
-        path: 'children-detailing', component:ChildrenDetailingComponent
+        path: 'children-detailing', component: ChildrenDetailingComponent
       },
       {
-        path: 'informations/:param', component:InformationsComponent
+        path: 'informations/:param', component: InformationsComponent
       }
     ])
   ],
