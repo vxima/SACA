@@ -7,7 +7,7 @@ export let config: Config = {
     SELENIUM_PROMISE_MANAGER: false,
     marionette: false,
     capabilities: {
-        browserName: 'firefox'
+        browserName: 'chrome'
     },
 
     framework: 'custom',
@@ -20,7 +20,7 @@ export let config: Config = {
     onPrepare: () => {
 
         //browser.ignoreSynchronization = true;
-        //browser.manage().window().maximize();
+        browser.manage().window().maximize();
 
     },
     cucumberOpts: {
