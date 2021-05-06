@@ -1,4 +1,12 @@
 <h1>Detalhamento das crianças</h1>
+
+<div class>
+    <label >Filtrar por criança</label>
+    <div>
+        <input [(ngModel)]="filter" class="form-control">
+    </div>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -13,7 +21,7 @@
     </thead>
     <tbody>
         
-        <tr *ngFor="let child of children">
+        <tr *ngFor="let child of filteredChildren">
             <td>{{ child.id }}</td>
             <td>{{ child.name }}</td>
             <td>{{ child.age }}</td>

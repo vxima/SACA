@@ -12,6 +12,10 @@ export class ChildrenDetailingComponent implements OnInit {
   child = {} as Child;
   children: Child[] = [];
 
+  filteredChildren: Child[] = [];
+
+  _filterBy!: string;
+
   constructor(private childService: ChildService) {}
   
   ngOnInit() {
@@ -21,8 +25,17 @@ export class ChildrenDetailingComponent implements OnInit {
   getChildren() {
     this.childService.getChildren().subscribe((children: Child[]) => {
       this.children = children;
+      this.filteredChildren = this.children;
     });
   }
 
+  set filter(value: string) {
+    this._filterBy = value;
+    this.filteredChildren = this.children.filter((_children: Child) => _children.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
+  }
+
+  get filter() {
+    return this._filterBy;
+  }
   
 }
